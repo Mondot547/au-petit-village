@@ -1,0 +1,36 @@
+.sort {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+
+    .sort-name input {
+        border: 1px solid #999;
+        padding: 10px;
+        border-radius: 50px;
+    }
+
+    .sort-price select {
+        border: 1px solid #999;
+        border-radius: 10px;
+        padding: 10px;
+        background-color: #fff;
+    }
+}
+
+section {
+
+    h1 {
+        text-align: center;
+        text-decoration: underline;
+    }
+
+    .product {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 2rem;
+        flex-wrap: wrap;
+    }
+
+}

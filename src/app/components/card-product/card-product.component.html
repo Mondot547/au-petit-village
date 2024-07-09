@@ -1,0 +1,12 @@
+<a routerLink="/product/{{ product.id }}" class="card-link">
+    <div class="card">
+        <div class="card-body">
+            <img [src]="product.imageUrl" alt="" class="card-img">
+            <h5 class="card-title">{{ product.name }}</h5>
+            <p class="card-text">Price: ${{ product.price }}</p>
+            <p class="card-text">Description: {{ product.description }}</p>
+            <p class="card-text">Category: {{ product.category }}</p>
+            <p class="card-text">Rating: {{ product.rating }}</p>
+        </div>
+    </div>
+</a>

@@ -1,0 +1,34 @@
+header {
+    background-color: #151217;
+
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem;
+
+        img {
+            width: 50px;
+            height: 50px;
+        }
+
+        ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+
+            li {
+                a {
+                    color: #FDD90B;
+                    text-decoration: none;
+                    padding: 5px;
+
+                    &:hover {
+                        color: #DA001E;
+                        border-bottom: 1px solid #DA001E;
+                    }
+                }
+            }
+        }
+    }
+}

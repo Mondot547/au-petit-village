@@ -1,7 +1,16 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
+import { HomeComponent } from './pages/home/home.component';
+import { ProductDetailComponent } from './components/product-detail/product-detail.component';
+import { AboutComponent } from './pages/about/about.component';
 
-const routes: Routes = [];
+
+const routes: Routes = [
+  { path: '', component: HomeComponent },
+  { path: 'about', component: AboutComponent},
+  { path: 'product/:id', component: ProductDetailComponent }, // Route avec paramètre ID
+  { path: '**', redirectTo: '' }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

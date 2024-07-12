@@ -1,4 +1,4 @@
-@import '../../../styles.scss';
+@import "../../../styles.scss";
 
 header {
     background-color: $bg-color-nav;
@@ -41,7 +41,7 @@ header {
                     transition: color 0.3s;
 
                     &:hover {
-                        color: $color-hover-link // Couleur de survol
+                        color: $color-hover-link; // Couleur de survol
                     }
                 }
             }

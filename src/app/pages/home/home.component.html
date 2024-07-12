@@ -2,7 +2,11 @@
     <div class="sort">
         <span class="sort-name">
             <label for="search">Recherche: </label>
-            <input id="search" [(ngModel)]="searchText" placeholder="Recherche par nom" />
+            <input
+                id="search"
+                [(ngModel)]="searchText"
+                placeholder="Recherche par nom"
+            />
         </span>
         <span class="sort-price">
             <label for="sortOrder">Prix: </label>
@@ -13,11 +17,53 @@
         </span>
     </div>
     <section>
+        <h1>Au petit village</h1>
+        <p>
+            Bienvenue chez "Au Petit Village", votre destination pour des
+            figurines de collection inspirées de l'univers mythique d'Astérix et
+            Obélix. Fondée avec passion, notre entreprise se consacre à capturer
+            l'esprit aventureux et l'humour intemporel des célèbres Gaulois dans
+            chaque détail de nos créations.
+        </p>
+        <p>
+            Chez "Au Petit Village", nous nous adressons à une génération
+            nostalgique, âgée de 30 à 55 ans, qui a grandi en suivant les
+            exploits épiques de nos héros dessinés. Chaque figurine que nous
+            concevons est un hommage vibrant à l'héritage culturel et au charme
+            indémodable de la bande dessinée Astérix et Obélix. Nos produits
+            allient qualité artisanale et souci du détail, créés pour raviver
+            vos souvenirs d'enfance et apporter une touche d'aventure et de
+            magie à votre quotidien.
+        </p>
+        <p>
+            Que ce soit pour enrichir votre collection personnelle ou offrir un
+            cadeau spécial à un être cher, "Au Petit Village" est là pour vous
+            offrir une expérience authentique et mémorable. Explorez notre gamme
+            de figurines uniques, faites avec amour et dévotion pour les fans
+            d'Astérix et Obélix.
+        </p>
+        <p>
+            Plongez dans l'univers captivant de la Gaule antique et laissez-vous
+            emporter par l'esprit espiègle et courageux qui caractérise nos
+            personnages iconiques. Bienvenue dans notre petit village, où la
+            magie de la bande dessinée devient réalité.
+        </p>
+    </section>
+    <section>
         <h1>Nos produits</h1>
         <div class="flex">
-            <div class="product" *ngFor="let product of products | sortByPrice: sortOrder | sortByName: searchText">
-                <app-card-product *ngIf="product.name !== 'Produit non trouvé !'"
-                    [product]="product"></app-card-product>
+            <div
+                class="product"
+                *ngFor="
+                    let product of products
+                        | sortByPrice: sortOrder
+                        | sortByName: searchText
+                "
+            >
+                <app-card-product
+                    *ngIf="product.name !== 'Produit non trouvé !'"
+                    [product]="product"
+                ></app-card-product>
 
                 <span *ngIf="product.name === 'Produit non trouvé !'">
                     <p>{{ product.name }}</p>

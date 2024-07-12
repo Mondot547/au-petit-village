@@ -1,35 +1,28 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { ProductService } from '../../services/product.service'; // Importez le service ProductService
+import { Component, OnInit } from "@angular/core";
+import { ActivatedRoute } from "@angular/router";
+import { ProductService } from "../../services/product.service";
 
 @Component({
-  selector: 'app-product-detail',
-  templateUrl: './product-detail.component.html',
-  styleUrls: ['./product-detail.component.scss']
+  selector: "app-product-detail",
+  templateUrl: "./product-detail.component.html",
+  styleUrls: ["./product-detail.component.scss"],
 })
 export class ProductDetailComponent implements OnInit {
-  productId!: string;
-  product: any; // Déclaration du produit
+  product: any;
 
   constructor(
     private route: ActivatedRoute,
-    private productService: ProductService // Injection du service ProductService
+    private productService: ProductService,
   ) {}
 
   ngOnInit(): void {
-    this.productId = this.route.snapshot.paramMap.get('id') || '';
-    this.loadProductDetails();
-  }
-
-  loadProductDetails(): void {
-    this.productService.getProductById(this.productId).subscribe(
-      (product) => {
+    const productId = this.route.snapshot.paramMap.get("id");
+    if (productId !== null) {
+      this.productService.getProductById(productId).subscribe((product) => {
         this.product = product;
-      },
-      (error) => {
-        console.error('Error loading product details:', error);
-        // Gestion des erreurs si nécessaire
-      }
-    );
+      });
+    } else {
+      console.error("Product ID is null.");
+    }
   }
 }

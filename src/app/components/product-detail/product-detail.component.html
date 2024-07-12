@@ -1,6 +1,11 @@
-<div *ngIf="product">
-    <h2>{{ product.name }}</h2>
-    <p>Description: {{ product.description }}</p>
-    <p>Price: ${{ product.price }}</p>
-    <!-- Ajoutez d'autres détails du produit si nécessaire -->
+<div class="container" *ngIf="product">
+    <div class="product-description">
+        <h2>{{ product.name }}</h2>
+        <p>Description: {{ product.description }}</p>
+        <p>Price: ${{ product.price }}</p>
+        <a routerLink="/">Retour à l'accueil -></a>
+    </div>
+    <div class="product-img">
+        <img [src]="product.image" />
+    </div>
 </div>

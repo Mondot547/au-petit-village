@@ -7,16 +7,22 @@ $bg-color-sort: #f9d0a3;
 
 @font-face {
     font-family: "Bubbleboddy";
-    src: url("assets/fonts/Bubbleboddy-ExtraLightTrial.ttf") format("ttf");
+    src: url("./assets/fonts/Bobbleboddy_light.ttf") format("truetype");
     font-weight: normal;
     font-style: normal;
 }
 
-@font-face {
-    font-family: "Comfortaa";
-    src: url("assets/fonts/Comfortaa-Regular.ttf") format("ttf");
-    font-weight: normal;
+.comfortaa {
+    font-family: "Comfortaa", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
     font-style: normal;
+}
+
+html {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 h1,
@@ -31,6 +37,7 @@ h6 {
 body {
     background-color: #fff;
     font-family: "Comfortaa", sans-serif;
+    color: $color-link;
 }
 
 ul {

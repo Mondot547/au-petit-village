@@ -25,6 +25,7 @@ export class HomeComponent implements OnInit {
     {
       id: "_2",
       name: "Product B",
+
       price: 20,
       description:
         "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..",
@@ -32,6 +33,7 @@ export class HomeComponent implements OnInit {
     {
       id: "_3",
       name: "Product C",
+
       price: 50,
       description:
         "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..",
@@ -39,6 +41,7 @@ export class HomeComponent implements OnInit {
     {
       id: "_4",
       name: "Product D",
+
       price: 59.99,
       description:
         "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..",
@@ -46,6 +49,7 @@ export class HomeComponent implements OnInit {
     {
       id: "_5",
       name: "Product E",
+
       price: 25.5,
       description:
         "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..",
@@ -53,6 +57,7 @@ export class HomeComponent implements OnInit {
     {
       id: "_6",
       name: "Product F",
+
       price: 10.99,
       description:
         "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..",

@@ -1,11 +1,37 @@
 /* You can add global styles to this file, and also import other style files */
 
-$bg-color-nav: #FDD90B;
+$bg-color-nav: #fdd90b;
 $color-link: #151217;
-$color-hover-link: #DA001E;
-$bg-color-sort: #F9D0A3;
+$color-hover-link: #da001e;
+$bg-color-sort: #f9d0a3;
 
+@font-face {
+    font-family: "Bubbleboddy";
+    src: url("assets/fonts/Bubbleboddy-ExtraLightTrial.ttf") format("ttf");
+    font-weight: normal;
+    font-style: normal;
+}
 
+@font-face {
+    font-family: "Comfortaa";
+    src: url("assets/fonts/Comfortaa-Regular.ttf") format("ttf");
+    font-weight: normal;
+    font-style: normal;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Bubbleboddy", sans-serif;
+}
+
+body {
+    background-color: #fff;
+    font-family: "Comfortaa", sans-serif;
+}
 
 ul {
     list-style: none;

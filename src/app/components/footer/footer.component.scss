@@ -1,0 +1,25 @@
+@import "../.././../styles.scss";
+
+footer {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    background-color: $bg-color-nav;
+    margin-top: 2rem;
+
+    ul {
+        display: flex;
+        gap: 2rem;
+
+        li {
+            a {
+                color: $color-link;
+                transition: color 0.3s;
+
+                &:hover {
+                    color: $color-hover-link;
+                }
+            }
+        }
+    }
+}

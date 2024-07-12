@@ -1,10 +1,5 @@
 /* home.component.scss */
-@import '../../../styles.scss';
-
-.container {
-    margin: 20px;
-    font-family: 'Arial', sans-serif;
-}
+@import "../../../styles.scss";
 
 .sort {
     display: flex;
@@ -49,7 +44,7 @@ input,
 select {
     background: #fff;
     color: $color-link;
-    font-family: 'Georgia', serif;
+    font-family: "Georgia", serif;
     font-weight: bold;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease-in-out;
@@ -61,7 +56,15 @@ select:focus {
     border: none;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
-
+section {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+h1 {
+    text-align: center;
+    font-size: 3rem;
+    color: $color-hover-link;
+}
 .flex {
     display: flex;
     flex-wrap: wrap;
@@ -70,7 +73,6 @@ select:focus {
 }
 
 .product {
-
     box-sizing: border-box;
 }
 
@@ -79,32 +81,8 @@ select:focus {
     border-radius: 8px;
 }
 
-.card {
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s;
-    background: #fff;
-}
-
 .card:hover {
     transform: translateY(-5px);
-}
-
-.card-body {
-    padding: 15px;
-}
-
-.card-title {
-    font-size: 1.2rem;
-    margin-bottom: 10px;
-    font-family: 'Georgia', serif;
-}
-
-.card-text {
-    font-size: 1rem;
-    color: #555;
 }
 
 a {

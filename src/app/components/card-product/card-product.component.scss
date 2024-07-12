@@ -1,3 +1,5 @@
+@import "../../../styles.scss";
+
 .card-link {
     text-decoration: none;
     color: inherit;
@@ -8,6 +10,7 @@
         border-radius: 10px;
         overflow: hidden;
         transition: box-shadow 0.3s;
+        background-color: $bg-color-sort;
 
         &:hover {
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -26,11 +29,12 @@
             .card-title {
                 font-size: 18px;
                 margin-bottom: 10px;
+                color: $color-hover-link;
             }
 
             .card-text {
                 font-size: 14px;
-                color: #555;
+                color: $color-link;
                 margin-bottom: 5px;
             }
         }

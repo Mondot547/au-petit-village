@@ -1,21 +1,38 @@
-.card {
-    border: 1px solid #333;
-    border-radius: 15px;
-    padding: 24px;
+.card-link {
+    text-decoration: none;
+    color: inherit;
 
-    .card-body {
+    .card {
+        width: 250px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        overflow: hidden;
+        transition: box-shadow 0.3s;
 
-        .card-img {
-            width: 90%;
-            height: 150px;
+        &:hover {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
-        .card-title {
-            font-family: 'Courier New', Courier, monospace;
-        }
+        .card-body {
+            padding: 15px;
+            text-align: center;
 
-        .card-text {
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            .card-img {
+                width: 100%;
+                height: auto;
+                margin-bottom: 10px;
+            }
+
+            .card-title {
+                font-size: 18px;
+                margin-bottom: 10px;
+            }
+
+            .card-text {
+                font-size: 14px;
+                color: #555;
+                margin-bottom: 5px;
+            }
         }
     }
 }

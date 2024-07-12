@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
   Logo: string = '../../../assets/Logo_au petit village.jpg'; // Assurez-vous que le chemin est correct ici
+
+  menuActive: boolean = false;
+
+  toggleMenu() {
+    this.menuActive = !this.menuActive;
+  }
 }

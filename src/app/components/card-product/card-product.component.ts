@@ -7,6 +7,7 @@ import { Component, Input } from '@angular/core';
 })
 export class CardProductComponent {
   @Input() product: any;
+  imageProduct: string = '../../../assets/astérix.jpg';
 
   constructor() {}
 }

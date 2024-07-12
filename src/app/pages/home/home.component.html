@@ -14,18 +14,15 @@
     </div>
     <section>
         <h1>Nos produits</h1>
+        <div class="flex">
+            <div class="product" *ngFor="let product of products | sortByPrice: sortOrder | sortByName: searchText">
+                <app-card-product *ngIf="product.name !== 'Produit non trouvé !'"
+                    [product]="product"></app-card-product>
 
-        <ng-container *ngFor="let product of products | sortByPrice: sortOrder | sortByName: searchText">
-            <ul>
-                <li *ngIf="product.name !== 'Produit non trouvé !'">
-                    <app-card-product [product]="product"></app-card-product>
-                </li>
-                <li *ngIf="product.name === 'Produit non trouvé !'">
+                <span *ngIf="product.name === 'Produit non trouvé !'">
                     <p>{{ product.name }}</p>
-                </li>
-            </ul>
-        </ng-container>
-
-
+                </span>
+            </div>
+        </div>
     </section>
 </div>

@@ -1,15 +1,31 @@
+@import '../../../styles.scss';
+
 header {
-    background-color: #151217;
+    background-color: $bg-color-nav;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 
     nav {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 1rem;
+        padding: 0 20px;
 
-        img {
-            width: 50px;
-            height: 50px;
+        .logo {
+            margin-top: 7px;
+            height: 70px;
+            border-radius: 50%;
+        }
+
+        .burger {
+            display: none;
+            font-size: 24px;
+            background: none;
+            border: none;
+            cursor: pointer;
+
+            &:focus {
+                outline: none;
+            }
         }
 
         ul {
@@ -19,14 +35,48 @@ header {
 
             li {
                 a {
-                    color: #FDD90B;
                     text-decoration: none;
-                    padding: 5px;
+                    color: $color-link;
+                    font-size: 16px;
+                    transition: color 0.3s;
 
                     &:hover {
-                        color: #DA001E;
-                        border-bottom: 1px solid #DA001E;
+                        color: $color-hover-link // Couleur de survol
                     }
+                }
+            }
+        }
+    }
+
+    @media (max-width: 768px) {
+        nav {
+            .burger {
+                display: block;
+            }
+
+            ul {
+                position: absolute;
+                top: 60px;
+                right: 8px;
+                width: 30%;
+                height: calc(100vh - 60px);
+                background-color: $bg-color-nav;
+                flex-direction: column;
+                align-items: center;
+                justify-content: start;
+                transform: translateX(100%);
+                transition: all transform 0.3s ease-in-out;
+                margin: 0;
+                padding: 0;
+                display: none;
+
+                li {
+                    margin: 3rem 0;
+                }
+
+                &.active {
+                    transform: translateX(0);
+                    display: flex;
                 }
             }
         }

@@ -1,7 +1,10 @@
 <header>
     <nav>
-        <img [src]="Logo" alt="Logo de l'entreprise">
-        <ul>
+        <a routerLink="/">
+            <img [src]="Logo" alt="Logo de l'entreprise" class="logo">
+        </a>
+        <button class="burger" (click)="toggleMenu()">&#9776;</button>
+        <ul [class.active]="menuActive">
             <li><a routerLink="/">Accueil</a></li>
             <li><a routerLink="/about">À propos</a></li>
         </ul>

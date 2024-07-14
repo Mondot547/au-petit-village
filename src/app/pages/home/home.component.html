@@ -5,7 +5,7 @@
                 <input
                     type="text"
                     [(ngModel)]="searchQuery"
-                    (input)="updateSuggestions()"
+                    (input)="onSearch()"
                     name="searchQuery"
                     placeholder="Rechercher un produit..."
                     list="product-suggestions"
@@ -36,21 +36,21 @@
         <div class="flex">
             <div
                 class="product"
-                *ngFor="
-                    let product of filteredProducts
-                        | sortByPrice: sortOrder
-                        | sortByName: searchText
-                "
+                *ngIf="filteredProducts.length > 0; else noProductsFound"
             >
                 <app-card-product
-                    *ngIf="product.name !== 'Produit non trouvé !'"
+                    *ngFor="
+                        let product of filteredProducts
+                            | sortByPrice: sortOrder
+                            | sortByName: searchText
+                    "
                     [product]="product"
-                ></app-card-product>
-
-                <span *ngIf="product.name === 'Produit non trouvé !'">
-                    <p>{{ product.name }}</p>
-                </span>
+                >
+                </app-card-product>
             </div>
+            <ng-template #noProductsFound>
+                <p>Nom du produit non trouvé !</p>
+            </ng-template>
         </div>
     </section>
 </div>

@@ -3,8 +3,7 @@ import { Meta, Title } from "@angular/platform-browser";
 import { ProductService } from "../../services/product.service";
 import { faSearchengin } from "@fortawesome/free-brands-svg-icons";
 import { faSort } from "@fortawesome/free-solid-svg-icons";
-
-import { Router } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 
 interface Product {
   id: string;
@@ -22,9 +21,9 @@ export class HomeComponent implements OnInit {
   searchQuery: string = "";
   faSearch = faSearchengin;
   faArrows = faSort;
-  products: any[] = [];
-  suggestions: any[] = [];
-  filteredProducts: any[] = [];
+  products: Product[] = [];
+  suggestions: Product[] = [];
+  filteredProducts: Product[] = [];
   sortOrder: string = "asc";
   searchText: string = "";
 
@@ -33,19 +32,8 @@ export class HomeComponent implements OnInit {
     private titleService: Title,
     private productService: ProductService,
     private router: Router,
+    private route: ActivatedRoute,
   ) {}
-
-  onSearch() {
-    const product = this.products.find(
-      (p) => p.name.toLowerCase() === this.searchQuery.toLowerCase(),
-    );
-
-    if (product) {
-      this.router.navigate(["/product", product.id]);
-    } else {
-      alert("Produit non trouvé !");
-    }
-  }
 
   ngOnInit(): void {
     this.titleService.setTitle("Accueil - AuPetitVillage");
@@ -55,17 +43,64 @@ export class HomeComponent implements OnInit {
         "Bienvenue sur la page d'accueil d'AuPetitVillage. Découvrez nos produits et services.",
     });
 
-    this.productService.getProducts().subscribe((products) => {
-      this.products = products;
-      this.filteredProducts = products;
+    this.productService.getProducts().subscribe(
+      (products) => {
+        this.products = products;
+        this.filteredProducts = products; // Initialisation de filteredProducts avec tous les produits
+      },
+      (error) => {
+        console.error("Erreur lors du chargement des produits", error);
+      },
+    );
+
+    this.route.paramMap.subscribe((params) => {
+      const productId = params.get("id");
+      if (productId) {
+        this.loadProductDetails(productId);
+      }
     });
   }
 
-  updateSuggestions() {
-    const query = this.searchQuery.toLowerCase();
+  private loadProductDetails(productId: string): void {
+    this.productService.getProductById(productId).subscribe(
+      (product) => {
+        if (product) {
+          this.products = [product]; // Mettre à jour les produits avec le produit chargé
+        } else {
+          console.error(`Produit avec l'ID ${productId} non trouvé`);
+        }
+      },
+      (error) => {
+        console.error(
+          "Erreur lors du chargement des détails du produit",
+          error,
+        );
+      },
+    );
+  }
+
+  onSearch(): void {
+    const query = this.searchQuery.toLowerCase().trim();
+    if (!query) {
+      this.filteredProducts = this.products; // Réinitialiser filteredProducts avec tous les produits si la recherche est vide
+      this.suggestions = [];
+      return;
+    }
+
     this.suggestions = this.products.filter((product) =>
       product.name.toLowerCase().includes(query),
     );
-    this.filteredProducts = this.suggestions;
+
+    this.filteredProducts = this.products.filter((product) =>
+      product.name.toLowerCase().includes(query),
+    );
+
+    if (
+      this.filteredProducts.length === 1 &&
+      this.filteredProducts[0].name.toLowerCase() === query
+    ) {
+      const productId = this.filteredProducts[0].id;
+      this.router.navigate(["/product", productId]);
+    }
   }
 }

@@ -85,13 +85,12 @@ section {
 }
 
 .flex {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    justify-content: space-around;
-
     .product {
         box-sizing: border-box;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+        justify-content: space-around;
 
         img {
             max-width: 100%;

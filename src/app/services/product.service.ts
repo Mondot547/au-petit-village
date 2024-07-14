@@ -62,17 +62,13 @@ export class ProductService {
       description:
         "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..",
     },
-    {
-      id: "_7",
-      name: "Product G",
-      image: "../../assets/astérix.jpg",
-      price: 6,
-      description:
-        "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..",
-    },
   ];
 
   constructor() {}
+
+  getProducts(): Observable<Product[]> {
+    return of(this.products);
+  }
 
   getProductById(id: string): Observable<Product | undefined> {
     return of(this.products.find((product) => product.id === id));

@@ -46,7 +46,7 @@ export class HomeComponent implements OnInit {
     this.productService.getProducts().subscribe(
       (products) => {
         this.products = products;
-        this.filteredProducts = products; // Initialisation de filteredProducts avec tous les produits
+        this.filteredProducts = products;
       },
       (error) => {
         console.error("Erreur lors du chargement des produits", error);
@@ -65,7 +65,7 @@ export class HomeComponent implements OnInit {
     this.productService.getProductById(productId).subscribe(
       (product) => {
         if (product) {
-          this.products = [product]; // Mettre à jour les produits avec le produit chargé
+          this.products = [product];
         } else {
           console.error(`Produit avec l'ID ${productId} non trouvé`);
         }

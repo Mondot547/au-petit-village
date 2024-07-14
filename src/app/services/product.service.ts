@@ -6,7 +6,7 @@ interface Product {
   name: string;
   image: string;
   price: number;
-  description: string; // Ajoutez d'autres propriétés de détail du produit si nécessaire
+  description: string;
 }
 
 @Injectable({

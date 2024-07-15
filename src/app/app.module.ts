@@ -11,7 +11,6 @@ import { AboutComponent } from "./pages/about/about.component";
 import { HomeComponent } from "./pages/home/home.component";
 import { SortByPricePipe } from "./pipes/sort-by-price.pipe";
 import { SortByNamePipe } from "./pipes/sort-by-name.pipe";
-import { SlickCarouselModule } from "ngx-slick-carousel";
 import { FormsModule } from "@angular/forms";
 import { CardProductComponent } from "./components/card-product/card-product.component";
 import { ProductDetailComponent } from "./components/product-detail/product-detail.component";
@@ -29,13 +28,7 @@ import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
     CardProductComponent,
     ProductDetailComponent,
   ],
-  imports: [
-    BrowserModule,
-    SlickCarouselModule,
-    AppRoutingModule,
-    FormsModule,
-    FontAwesomeModule,
-  ],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, FontAwesomeModule],
   providers: [provideClientHydration()],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
